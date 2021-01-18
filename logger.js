@@ -38,8 +38,18 @@ class Logger extends EventEmitter {
     //Desc: raises event to be handled
     log(msg) {
         //Raise event including uuid and the message passed thru
-        this.emit('message', { id: uuid.v4(), msg });
-    }
+        let ts = Date.now();
+        let dateObj = new Date(ts);
+        let day = dateObj.getDate();
+        let month = dateObj.getMonth() + 1;
+        let year = dateObj.getFullYear();
+
+        this.emit('message', 
+            {
+                date: day + '-' + month + '-' + year ,
+                id: uuid.v4(), 
+                msg });
+            }
 }
 
 module.exports = Logger;

@@ -13,3 +13,16 @@ const configObj = require('./config.json');
 
 //logger
 const Logger = require('./logger');
+
+const logger = new Logger(configObj.logPath);
+const logPath = configObj.logPath;
+console.log(logPath);
+
+//link logger emitter to append to preferred file
+logger.on('message', (data) => 
+    fs.appendFile(path.join(__dirname, logPath), JSON.stringify(data) + '\n', err =>{
+     if (err) throw err;
+ })
+);
+
+logger.log('test message');

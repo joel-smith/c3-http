@@ -4,7 +4,8 @@
   "description": "a simple single threaded http server in node.js. intended to serve self-contained static content as a demo, a rudimentary version of what express.js does",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "dev": "nodemon server"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/joel-smith/c3-http#readme",
   "devDependencies": {
     "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2"
   }
 }
