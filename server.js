@@ -18,7 +18,7 @@ const logger = new Logger(configObj.logPath);
 const logPath = configObj.logPath;
 
 //checks for sets to either config setting or finds auto
-const PORT = configObj.port || process.env.PORT;
+const PORT =  process.env.PORT || configObj.port;
 
 
 try {
@@ -45,7 +45,7 @@ try {
 
 
 //this logging type on Heroku
- logger.on('message', (data) => console.log('Called listener', data));
+ logger.on('message', (data) => console.log('Server Event', data));
 
 //make our web server
 const server = http.createServer((req, res) => {
