@@ -43,10 +43,13 @@ class Logger extends EventEmitter {
         let day = dateObj.getDate();
         let month = dateObj.getMonth() + 1;
         let year = dateObj.getFullYear();
+        let hours = dateObj.getHours();
+        let minutes = dateObj.getMinutes();
+        let seconds = dateObj.getSeconds();
 
         this.emit('message', 
             {
-                date: day + '-' + month + '-' + year ,
+                date: day + '-' + month + '-' + year + ' ' + hours + ':' + minutes + ':' + seconds ,
                 id: uuid.v4(), 
                 msg });
             }
